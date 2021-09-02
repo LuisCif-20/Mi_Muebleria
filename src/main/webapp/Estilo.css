@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/08/2021, 23:13:48
+    Author     : nroda
+*/
+#INDE{
+    text-align:center;
+    background-color:deepskyblue;
+    color: white;
+}
+
+#p1{
+    text-align: center;
+}
+
+#p2{
+    text-align: center;
+}
+
+#p3{
+    text-align: center;
+}
+
+div{
+    text-align: center;
+}
+
+#Enviar{
+    text-align: center;
+    font-size: 20px;
+    background-color: white;
+    border-color: deepskyblue;
+    color: black;
+    width: 150px;
+    transition-duration: 0.4s;
+}
+
+#Enviar:hover{
+    background-color: deepskyblue;
+    color: white;
+}
+
+

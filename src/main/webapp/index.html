@@ -1,10 +1,32 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
+        <title>LOGIN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Estilo.css" rel="stylesheet" type="text/css"/>
+    </head>  
+    <body>     
+        <h1 id="INDEX">¡Mi Muebleria!</h1>
+        <div>
+            <form action="Ingreso" method="POST">
+                <br>
+                <br>
+                <label>Ingresa tu usuario:</label>
+                <input name="usuario">
+                <br>
+                <br>
+                <label>Ingresa tu constraseña:</label>
+                <input name="contrasenia" type="password">
+                <br>
+                <br>
+                <button type="submit" id="Enviar">Ingresar</button>  
+            </form> 
+        </div>      
     </body>
 </html>
