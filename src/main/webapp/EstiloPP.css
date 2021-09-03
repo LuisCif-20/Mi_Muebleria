@@ -28,3 +28,21 @@ and open the template in the editor.
     color: white;
     text-align: center;
 }
+div{
+    text-align: center;
+}
+
+#Return{
+    text-align: center;
+    font-size: 20px;
+    background-color: white;
+    border-color: red;
+    color: black;
+    width: 150px;
+    transition-duration: 0.4s;
+}
+
+#Return:hover{
+    background-color: red;
+    color: white;
+}

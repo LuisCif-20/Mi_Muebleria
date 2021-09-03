@@ -20,7 +20,12 @@
         <%} else if (request.getAttribute("Cargo").equals(3)) {%>
         <h1 id="AA">Area de Administración</h1>   
         <%} else {%>
-        <h1 id="NN">Has ingresado mal tus datos, no se ha encontrado el usuario</h1>
+        <div>
+           <form action="index.html">
+            <h1 id="NN">Has ingresado mal tus datos, no se ha encontrado el usuario</h1>
+            <button type="submit" id="Return">Regresar</button>  
+        </form> 
+        </div>
         <%}%>
 
     </body>
