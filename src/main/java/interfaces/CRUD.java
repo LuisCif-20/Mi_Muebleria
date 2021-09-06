@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import com.mysql.cj.protocol.Resultset;
+import java.sql.ResultSet;
+
 /**
  *
  * @author nroda
@@ -12,7 +15,7 @@ package interfaces;
 public interface CRUD {
     
     public String create();
-    public String read();
+    public ResultSet read();
     public String update();
     public String delete();
 }

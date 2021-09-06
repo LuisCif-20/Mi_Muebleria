@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conexion_db;
+package servlets;
 
+import editar_tabla.Pieza;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nroda
  */
-public class Ingreso extends HttpServlet {
+@WebServlet(name = "Registro", urlPatterns = {"/Pieza/Registro"})
+public class Registro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,18 +56,9 @@ public class Ingreso extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Buscador_Id buscar = new Buscador_Id(request.getParameter("usuario"), request.getParameter("contrasenia"));
-        int cargo = buscar.existeId();
-        System.out.println(cargo);
-        if (cargo == 1) {
-            response.sendRedirect("fabrica.jsp");
-        } else if (cargo == 2) {
-            response.sendRedirect("ventas.jsp");
-        } else if (cargo == 3) {
-            response.sendRedirect("administracion.jsp");
-        } else {
-            response.sendRedirect("error.jsp");
-        }
+        Pieza pieza = new Pieza(request.getParameter("tipo"), Double.parseDouble(request.getParameter("costo")));
+        pieza.create();
+        response.sendRedirect(request.getContextPath() + "/fabrica.jsp");
     }
 
     /**

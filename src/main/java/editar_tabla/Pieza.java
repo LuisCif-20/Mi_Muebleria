@@ -34,32 +34,44 @@ public class Pieza implements CRUD {
         conectar = new Conexion();
     }
 
-    public Pieza(String tipo, double costo,String nuevoTipo, double nuevocosto, int nuevaCantidad) {
+    public Pieza(String tipo, double costo, String nuevoTipo) {
         conectar = new Conexion();
         this.costo = costo;
         this.tipo = tipo;
-        this.nuevaCantidad = nuevaCantidad;
-        this.nuevoCosto = nuevocosto;
         this.nuevoTipo = nuevoTipo;
     }
 
+    public Pieza() {
+        conectar = new Conexion();
+    }
+
+    
+    
 
     @Override
     public String update() {
         boolean existe = this.buscarElemento(tipo, costo);
         if (existe) {
-            
+
         }
         return "No existe el archivo a actualizar";
     }
-    
-    //Verifica los campos vacion
 
+    //Verifica los campos vacion
     //Regresa los datos almacenados
     @Override
-    public String read() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ResultSet read() {
+        String query = "SELECT * FROM pieza";
+        try {
+            Statement leer = conectar.getConectar().createStatement();
+            ResultSet read = leer.executeQuery(query);
+            return read;
+        } catch (SQLException ex) {
+            Logger.getLogger(Pieza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
+
     //Elimina un elemento de la tabla que exista 
     @Override
     public String delete() {
@@ -78,6 +90,7 @@ public class Pieza implements CRUD {
         }
         return "No se puede eliminar la pieza ya que no se encontro";
     }
+
     //Crea un elemento en la tabla y si ya existe aumenta la cantidad
     @Override
     public String create() {
@@ -111,6 +124,7 @@ public class Pieza implements CRUD {
         return "Ha aumentado la cantidad de la pieza " + tipo + " con costo " + costo;
 
     }
+
     //Regresa las existencias de una pieza en particular
     public int regresarDatoCantidad() {
         int cantidad = 0;
@@ -132,6 +146,7 @@ public class Pieza implements CRUD {
         }
         return cantidad;
     }
+
     //Busca y valida si un elemente existe
     public boolean buscarElemento(String tipo, double costo) {
         Statement resultado;
@@ -154,9 +169,8 @@ public class Pieza implements CRUD {
         }
         return false;
     }
-    
-    //Getter y Setters
 
+    //Getter y Setters
     public String getTipo() {
         return tipo;
     }
